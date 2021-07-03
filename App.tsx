@@ -1,8 +1,9 @@
 import { Fraunces_300Light, Fraunces_400Regular, Fraunces_700Bold } from "@expo-google-fonts/fraunces";
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
 import React from 'react';
-import { Categorias } from "./src/screens";
+import { Routes } from "./src/Routes/app.routes";
 
 export default function App() {
     const [fontsCarregadas] = useFonts({
@@ -15,6 +16,9 @@ export default function App() {
         return <AppLoading />;
 
     return (
-        <Categorias />
+        <>
+            <StatusBar style="auto" />
+            <Routes />
+        </>
     );
 }
