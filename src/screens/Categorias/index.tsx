@@ -1,15 +1,18 @@
 import React from "react";
-import { Button, Text, View } from "react-native";
-import { styles } from "./styles";
-import { useNavigation } from "@react-navigation/native";
+import { FlatList } from "react-native";
+import { CategoriaItem } from "../../components";
+import { CATEGORIAS } from "../../data/dummy-data";
+import { CategoriaProps } from "../../types";
 
 export const Categorias: React.FC = () => {
-    const { navigate } = useNavigation();
+    const [categorias, setCategorias] = React.useState<CategoriaProps[]>(CATEGORIAS);
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.texto}>Categorias</Text>
-            <Button title="Ir para receitas" onPress={() => navigate("receitas")} />
-        </View>
+        <FlatList
+            numColumns={2}
+            data={categorias}
+            keyExtractor={i => i.id}
+            renderItem={({ item }) => <CategoriaItem {...item} />}
+        />
     );
 };

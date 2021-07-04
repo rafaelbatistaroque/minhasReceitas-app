@@ -1,1 +1,2 @@
-export * from "./TEMA"
+export * from "./TEMA";
+export * from "./ROTAS";
