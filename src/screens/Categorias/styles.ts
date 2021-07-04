@@ -1,4 +1,3 @@
-import { TEMA } from "./../../constants/";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -6,8 +5,5 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
-    },
-    texto: {
-        fontFamily: TEMA.FONTES.REGULAR
     }
 });

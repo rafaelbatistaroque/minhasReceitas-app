@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator, StackNavigationOptions, TransitionPresets } from "@react-navigation/stack";
 import React from "react";
-import { ROTAS, TEMA } from "../constants";
+import { ECores, ERotas } from "../enums";
 import { Categorias, Detalhes, Receitas } from "../screens";
 
 const { Navigator, Screen } = createStackNavigator();
@@ -10,18 +10,18 @@ export const Routes: React.FC = () => {
     const { cardStyleInterpolator } = TransitionPresets.SlideFromRightIOS;
     const estiloCabecalho: StackNavigationOptions = {
         cardStyleInterpolator,
-        headerTintColor: TEMA.CORES.BRANCO,
+        headerTintColor: ECores.branco,
         headerStyle: {
-            backgroundColor: TEMA.CORES.PRIMARY
+            backgroundColor: ECores.primary
         }
     };
 
     return (
         <NavigationContainer>
-            <Navigator initialRouteName={ROTAS.CATEGORIAS} screenOptions={estiloCabecalho}>
-                <Screen name={ROTAS.CATEGORIAS} component={Categorias} options={{ title: "Categorias" }} />
-                <Screen name={ROTAS.RECEITAS} component={Receitas} options={{ title: "Receitas" }} />
-                <Screen name={ROTAS.DETALHES} component={Detalhes} options={{ title: "Detalhes" }} />
+            <Navigator initialRouteName={ERotas.categorias} screenOptions={estiloCabecalho}>
+                <Screen name={ERotas.categorias} component={Categorias} options={{ title: "Categorias" }} />
+                <Screen name={ERotas.receitas} component={Receitas} options={{ title: "Receitas" }} />
+                <Screen name={ERotas.detalhes} component={Detalhes} options={{ title: "Detalhes" }} />
             </Navigator>
         </NavigationContainer>
     );
