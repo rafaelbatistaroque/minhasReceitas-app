@@ -1,16 +1,23 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
-import { ERotas } from "../../enums";
+import { Text, TouchableOpacity, View, Platform, TouchableNativeFeedback } from "react-native";
 import { CategoriaProps } from "../../types";
 import { styles } from "./styles";
 
-export const CategoriaItem: React.FC<CategoriaProps> = ({ titulo, id }) => {
-    const { navigate } = useNavigation();
+type Props = CategoriaProps & {
+    onSelect: () => void;
+};
 
-    return <TouchableOpacity style={styles.container} onPress={() => navigate(ERotas.receitas, { categoriaId: id })}>
-        <View >
-            <Text>{titulo}</Text>
-        </View>
-    </TouchableOpacity>;
+export const CategoriaItem: React.FC<Props> = ({ titulo, cor, onSelect }) => {
+    let TouchableNative: any = TouchableOpacity;
+
+    if(Platform.OS === "android" && Platform.Version >= 21)
+        TouchableNative = TouchableNativeFeedback;
+
+    return <View style={styles.container}>
+        <TouchableNative onPress={onSelect}>
+            <View style={[styles.containerTitulo, { backgroundColor: cor }]}>
+                <Text numberOfLines={2} style={styles.estiloTitulo}>{titulo}</Text>
+            </View>
+        </TouchableNative>
+    </View>;
 };
