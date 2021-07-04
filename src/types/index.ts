@@ -1,1 +1,2 @@
-export * from "./CategoriaProps"
+export * from "./Categoria";
+export * from "./Receita";

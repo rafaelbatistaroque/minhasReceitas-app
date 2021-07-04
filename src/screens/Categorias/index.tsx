@@ -4,12 +4,12 @@ import { FlatList } from "react-native";
 import { CategoriaItem } from "../../components";
 import { CATEGORIAS } from "../../data/categorias-dummy";
 import { ERotas } from "../../enums";
-import { CategoriaProps } from "../../types";
+import { Categoria } from "../../types";
 import { styles } from "./styles";
 
 export const Categorias: React.FC = () => {
     const { navigate } = useNavigation();
-    const [categorias, setCategorias] = React.useState<CategoriaProps[]>(CATEGORIAS);
+    const [categorias, setCategorias] = React.useState<Categoria[]>(CATEGORIAS);
 
     const handleNavigation = (categoriaId: string) => {
         navigate(ERotas.receitas, { categoriaId });

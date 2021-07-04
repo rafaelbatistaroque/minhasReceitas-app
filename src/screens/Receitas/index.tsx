@@ -1,8 +1,8 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import React from "react";
 import { Text, View } from "react-native";
-import { CATEGORIAS } from "../../data/dummy-data";
-import { CategoriaProps } from "../../types";
+import { CATEGORIAS } from "../../data/categorias-dummy";
+import { Categoria } from "../../types";
 import { styles } from "./styles";
 
 type Props = {
@@ -14,7 +14,7 @@ export const Receitas: React.FC = () => {
     const { categoriaId } = params as Props;
     const { setOptions } = useNavigation();
 
-    const [receita, setReceita] = React.useState<CategoriaProps>(CATEGORIAS.find(c => c.id === categoriaId) as CategoriaProps);
+    const [receita, setReceita] = React.useState<Categoria>(CATEGORIAS.find(c => c.id === categoriaId) as Categoria);
 
     React.useEffect(() => {
         setOptions({ title: `Receitas ${receita.titulo}` });
