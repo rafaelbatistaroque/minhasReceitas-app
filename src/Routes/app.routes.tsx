@@ -10,9 +10,13 @@ export const Routes: React.FC = () => {
     const { cardStyleInterpolator } = TransitionPresets.SlideFromRightIOS;
     const estiloCabecalho: StackNavigationOptions = {
         cardStyleInterpolator,
-        headerTintColor: ECores.branco,
+        headerTintColor: ECores.preto,
+        headerTitleStyle: {
+
+        },
+        headerTitleAlign: "center",
         headerStyle: {
-            backgroundColor: ECores.primary
+            backgroundColor: ECores.branco
         }
     };
 
