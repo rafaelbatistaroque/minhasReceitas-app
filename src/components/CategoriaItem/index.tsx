@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, TouchableOpacity, View, Platform, TouchableNativeFeedback } from "react-native";
-import { CategoriaProps } from "../../types";
+import { Categoria } from "../../types";
 import { styles } from "./styles";
 
-type Props = CategoriaProps & {
+type Props = Categoria & {
     onSelect: () => void;
 };
 

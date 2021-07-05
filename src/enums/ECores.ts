@@ -4,5 +4,5 @@ export enum ECores {
     accent = "#E5581F",
     preto = "#333",
     branco = "#E5E5E5",
-    overlay = "rgba(0,0,0,0.30)"
+    overlay = "rgba(0,0,0,0.40)"
 }
