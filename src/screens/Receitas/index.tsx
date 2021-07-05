@@ -3,6 +3,7 @@ import React from "react";
 import { FlatList, View } from "react-native";
 import { ReceitaItem } from "../../components";
 import { CATEGORIAS, RECEITAS } from "../../data";
+import { ERotas } from "../../enums";
 import { Categoria, Receita } from "../../types";
 import { styles } from "./styles";
 
@@ -13,7 +14,7 @@ type Props = {
 export const Receitas: React.FC = () => {
     const { params } = useRoute();
     const { categoriaId } = params as Props;
-    const { setOptions } = useNavigation();
+    const { setOptions, navigate } = useNavigation();
 
     const categoriaSelecionada = CATEGORIAS.find(c => c.id === categoriaId) as Categoria;
     const receitasDaCategoria: Receita[] = RECEITAS.filter(r => r.categoriasId.includes(categoriaId));
@@ -25,13 +26,17 @@ export const Receitas: React.FC = () => {
         setOptions({ title: `Receitas ${categoria.titulo}` });
     }, [categoria]);
 
+    const handleReceitaSeleconada = (receitaId: string) => {
+        navigate(ERotas.detalhes, { receitaId });
+    };
+
     return (
         <View style={styles.container}>
             <FlatList
                 keyExtractor={item => item.id}
                 showsVerticalScrollIndicator={false}
                 data={receitas}
-                renderItem={({ item }) => <ReceitaItem {...item} onSelect={() => { }} />}
+                renderItem={({ item }) => <ReceitaItem {...item} onSelect={() => handleReceitaSeleconada(item.id)} />}
             />
         </View>
     );
