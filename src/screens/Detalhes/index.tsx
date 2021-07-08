@@ -16,7 +16,7 @@ export const Detalhes: React.FC = () => {
     const { setOptions } = useNavigation();
 
     const receitaSelecionada = RECEITAS.find(r => r.id === receitaId) as Receita;
-    const [receita, setReceita] = React.useState<Receita>(receitaSelecionada);
+    const [receita] = React.useState<Receita>(receitaSelecionada);
 
     React.useEffect(() => {
         setOptions({

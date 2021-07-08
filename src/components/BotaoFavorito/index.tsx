@@ -1,7 +1,7 @@
 import { FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
-import { RectButton } from "react-native-gesture-handler";
 import { TouchableOpacity } from "react-native";
+import { ECores } from "../../enums";
 
 type Props = {
     action: () => void;
@@ -9,7 +9,7 @@ type Props = {
     cor?: string;
 };
 
-export const BotaoFavorito: React.FC<Props> = ({ action, ehSolido, cor = "#000" }) => {
+export const BotaoFavorito: React.FC<Props> = ({ action, ehSolido, cor = ECores.preto }) => {
     return (
         <TouchableOpacity
             activeOpacity={.7}

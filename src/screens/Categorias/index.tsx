@@ -9,7 +9,7 @@ import { styles } from "./styles";
 
 export const Categorias: React.FC = () => {
     const { navigate } = useNavigation();
-    const [categorias, setCategorias] = React.useState<Categoria[]>(CATEGORIAS);
+    const [categorias] = React.useState<Categoria[]>(CATEGORIAS);
 
     const handleNavigation = (categoriaId: string) => {
         navigate(ERotas.receitas, { categoriaId });
