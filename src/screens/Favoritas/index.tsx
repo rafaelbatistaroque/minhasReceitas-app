@@ -1,11 +1,20 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Text, View } from "react-native";
-import { styles } from "./styles";
+import { ReceitasLista } from "../../components/ReceitasLista";
+import { RECEITAS } from "../../data";
+import { ERotas } from "../../enums";
+import { Receita } from "../../types";
 
 export const Favoritas: React.FC = () => {
-    return (
-        <View style={styles.container}>
-            <Text>Favoritas</Text>
-        </View>
-    );
+    const { navigate } = useNavigation();
+
+    const receitasDaCategoria: Receita[] = RECEITAS.filter(r => ["m1", "m2"].includes(r.id));
+
+    const [receitas] = React.useState<Receita[]>(receitasDaCategoria);
+
+    const handleReceitaSelecinada = (receitaId: string) => {
+        navigate(ERotas.detalhes, { receitaId });
+    };
+
+    return <ReceitasLista receitaSelecinada={handleReceitaSelecinada} receitas={receitas} />;
 };
